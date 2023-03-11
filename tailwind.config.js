@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        banner: "url('/elden-ring-banner.jpg')"
+
       },
       colors: {
         blueDark: '#0e2535',
