@@ -9,7 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        banner: "url('/elden-ring-banner.jpg')"
+      },
+      colors: {
+        blueDark: '#0e2535',
+        grayNormal: '#cacaca;'
+      }
+    },
   },
   plugins: [],
 }
