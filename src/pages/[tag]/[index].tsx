@@ -2,6 +2,8 @@ import axios from "axios"
 import { useRouter } from "next/router"
 import Router from 'next/router'
 import Cards from "../../components/Cards"
+import Link from "next/link"
+import { FaArrowLeft } from 'react-icons/fa'
 
 interface TagProps {
   tag: string,
@@ -22,18 +24,23 @@ export default function Tag({ tag, items }: TagProps) {
 
   function nextPage() {
     const page = Number(route.query.index) + 1
-    Router.push(`/weapons/${page}`)
+    Router.push(`/${tag}/${page}`)
   }
 
   function prevPage() {
     const page = Number(route.query.index) - 1
-    Router.push(`/weapons/${page}`)
+    Router.push(`/${tag}/${page}`)
   }
 
 
   return (
     <>
-      <div className=" w-full flex justify-center flex-wrap p-10">
+      <div>
+        <Link href="/" className="p-4 m-5 w-fit bg-slate-800 rounded-md hover:bg-slate-900 flex items-center ">
+          Back to Categories
+        </Link>
+      </div>
+      <div className="sm:flex-none w-full flex justify-center flex-wrap p-10 ">
         {items.map(item => (
           <Cards key={item.id} item={item} />
         ))}
@@ -50,10 +57,19 @@ export default function Tag({ tag, items }: TagProps) {
 export async function getStaticPaths() {
 
   const totalWeaponsPages = 38
+  const totalArmorsPages = 71
+  const totalClassesPages = 2
   let totalStaticWeapons = []
 
   for (let i = 1; i <= totalWeaponsPages; i++) {
     totalStaticWeapons.push({ tag: 'weapons', page: i })
+  }
+
+  for (let i = 1; i <= totalArmorsPages; i++) {
+    totalStaticWeapons.push({ tag: 'armors', page: i })
+  }
+  for (let i = 1; i <= totalClassesPages; i++) {
+    totalStaticWeapons.push({ tag: 'classes', page: i })
   }
 
   const paths = totalStaticWeapons.map(e => ({
