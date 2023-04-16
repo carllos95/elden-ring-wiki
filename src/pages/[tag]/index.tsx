@@ -1,7 +1,20 @@
 import axios from "axios"
 import Link from 'next/link'
 
-export default function Tag({ arrayItems, tag }) {
+interface TagProps {
+  arrayItems: {
+    data: [
+      {
+        id: string
+        name: string
+      }
+    ]
+  }
+  tag: string
+}
+
+export default function Tag({ arrayItems, tag }: TagProps) {
+  console.log(arrayItems)
   return <div className="p-4">
     <h1 className="text-5xl mb-8">{tag?.replace(tag?.charAt(0), tag?.charAt(0).toUpperCase())}</h1>
     {arrayItems && arrayItems?.data?.map(e => (

@@ -42,14 +42,8 @@ export default function Home() {
   )
 }
 
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: true,
-  }
-}
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps() {
   // const { tag, slug } = params
 
   // const response = await axios({
