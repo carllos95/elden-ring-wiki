@@ -1,7 +1,5 @@
 import axios from "axios"
 import Link from 'next/link'
-import { useEffect, useState } from "react"
-import { useRouter } from 'next/router';
 
 interface TagProps {
   arrayItems:
@@ -13,11 +11,11 @@ interface TagProps {
       }
     ]
   }
+  tag: string
 
 }
 
-export default function Tag({ arrayItems }: TagProps) {
-  const route = useRouter()
+export default function Tag({ arrayItems, tag }: TagProps) {
   // const [arrayItems, setArrayItems] = useState<TagProps>()
 
   // useEffect(() => {
@@ -34,9 +32,9 @@ export default function Tag({ arrayItems }: TagProps) {
   // }, [route])
 
   return <div className="p-4">
-    <h1 className="text-5xl mb-8">{route.query.tag && route.query.tag}</h1>
+    <h1 className="text-5xl mb-8">{tag && tag}</h1>
     {arrayItems && arrayItems?.data?.map(e => (
-      <Link className="flex flex-col hover:underline" key={e.id} href={`/${route.query.tag}/${e.name}`} passHref>
+      <Link className="flex flex-col hover:underline" key={e.id} href={`/${tag}/${e.name}`} passHref>
         {e.name}
       </Link>
     ))

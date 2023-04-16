@@ -1,53 +1,107 @@
 import axios from "axios"
-import { useRouter } from 'next/router';
-import { useEffect, useState } from "react";
 
 interface SlugProps {
-  id: string
-  name: string
+  item: {
+    id: string
+    name: string
+  }
 }
 
-export default function Slug() {
-
-  const route = useRouter()
-  const [item, setItem] = useState<SlugProps>()
-
-
-  useEffect(() => {
-    (async () => {
-      try {
-        if (route.query.slug) {
-          const response = await axios(`https://eldenring.fanapis.com/api/${route.query.tag}?name=${route.query.slug}`)
-          setItem(response.data.data[0])
-        }
-      } catch (err) {
-        console.log(err)
-      }
-    })()
-  }, [route])
-
-  console.log(item)
+export default function Slug({ item }: SlugProps) {
 
   return <div>{item?.name}</div>
 }
-// export async function getStaticPaths() {
-//   return {
-//     paths: [],
-//     fallback: true, // can also be true or 'blocking'
-//   }
-// }
 
-// export async function getStaticProps({ params }) {
-//   const { tag, slug } = params
+export async function getStaticPaths() {
+  const routes = [
+    {
+      tag: 'weapons'
+    },
+    {
+      tag: 'ammos'
+    },
+    {
+      tag: 'armors'
+    },
+    {
+      tag: 'ashes'
+    },
+    {
+      tag: 'bosses'
+    },
+    {
+      tag: 'classes'
+    },
+    {
+      tag: 'creatures'
+    },
+    {
+      tag: 'incantations'
+    },
+    {
+      tag: 'items'
+    },
+    {
+      tag: 'locations'
+    },
+    {
+      tag: 'npcs'
+    },
+    {
+      tag: 'shields'
+    },
+    {
+      tag: 'sorceries'
+    },
+    {
+      tag: 'spirits'
+    },
+    {
+      tag: 'talismans'
+    },
+    {
+      tag: 'spirits'
+    }
+  ]
 
-//   const response = await axios(`https://eldenring.fanapis.com/api/${tag}?name=${slug}`,
-//   )
+  let mapArray = []
 
-//   const item = response.data.data[0]
-//   return {
-//     props: {
-//       // tag,
-//       item: item
-//     }
-//   }
-// }
+  for (const item of routes) {
+    const response = await axios(`https://eldenring.fanapis.com/api/${item.tag}`)
+    const array = response.data.data
+
+    mapArray.push(array.map((e: { name: any; }) => {
+      if (e) {
+        return {
+          tag: item.tag,
+          slug: e.name.replace(':', '')
+        }
+      }
+    }))
+  }
+
+
+
+  let mergeArrays: {}[] = []
+  mapArray.map(e => e.map((item: any) =>
+    mergeArrays.push({ params: item })
+  ))
+
+  return {
+    paths: mergeArrays,
+    fallback: false
+  }
+}
+
+export async function getStaticProps({ params }: any) {
+  const { tag, slug } = params
+
+  const response = await axios(`https://eldenring.fanapis.com/api/${tag}?name=${slug}`,
+  )
+  const item = response.data.data[0]
+  return {
+    props: {
+      item: item ? item : []
+    }
+  }
+}
