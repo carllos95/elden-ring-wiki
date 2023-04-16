@@ -43,20 +43,3 @@ export default function Home() {
 }
 
 
-export async function getStaticProps() {
-  // const { tag, slug } = params
-
-  // const response = await axios({
-  //   url: `https://eldenring.fanapis.com/api/${tag}?limit=10`,
-  //   method: 'get'
-  // })
-
-  // const itemsReponse = response.data
-
-  return {
-    props: {
-      // tag,
-      // items: itemsReponse
-    }
-  }
-}
