@@ -22,15 +22,15 @@ export default function Home() {
       <main>
         <h3 className='text-center text-grayNormal font-bold text-3xl mt-8'>Categories</h3>
         <div className='flex sm:p-[100px] justify-center flex-wrap p-[20px]'>
-          <Link href='/weapons/1' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
+          <Link href='/weapons' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
             <img src="./weapon.jpg" alt="Weapon" className='w-full h-[185px]' />
             <h3 className='text-grayNormal font-bold text-xl absolute bottom-3 right-3'>Weapons</h3>
           </Link>
-          <Link href='/armors/1' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
+          <Link href='/armors' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
             <img src="./armors.jpg" alt="Armors" className='w-full h-[185px]' />
             <h3 className='text-grayNormal font-bold text-xl absolute bottom-3 right-3'>Armors</h3>
           </Link>
-          <Link href='/classes/1' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
+          <Link href='/classes' className='w-[300px] relative mr-0 mb-5 sm:mr-5 transition-all duration-500 hover:scale-[1.1] hover:transition-all hover:duration-500'>
             <img src="./classes.png" alt="Classes" className='w-full h-[185px]' />
             <h3 className='text-grayNormal font-bold text-xl absolute bottom-3 right-3'>Classes</h3>
           </Link>

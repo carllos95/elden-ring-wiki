@@ -30,11 +30,6 @@ export default function Slug() {
 
   return <div>{item?.name}</div>
 }
-
-export function getStaticParams() {
-
-}
-
 // export async function getStaticPaths() {
 //   return {
 //     paths: [],
