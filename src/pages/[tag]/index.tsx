@@ -4,31 +4,34 @@ import { useEffect, useState } from "react"
 import { useRouter } from 'next/router';
 
 interface TagProps {
-  data: [
-    {
-      id: string
-      name: string
-    }
-  ]
+  arrayItems:
+  {
+    data: [
+      {
+        id: string
+        name: string
+      }
+    ]
+  }
 
 }
 
-export default function Tag() {
+export default function Tag({ arrayItems }: TagProps) {
   const route = useRouter()
-  const [arrayItems, setArrayItems] = useState<TagProps>()
+  // const [arrayItems, setArrayItems] = useState<TagProps>()
 
-  useEffect(() => {
-    (async () => {
-      try {
-        if (route.query.tag) {
-          const response = await axios(`https://eldenring.fanapis.com/api/${route.query.tag}?limit=10`)
-          setArrayItems(response.data)
-        }
-      } catch (err) {
-        console.log(err)
-      }
-    })()
-  }, [route])
+  // useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       if (route.query.tag) {
+  //         const response = await axios(`https://eldenring.fanapis.com/api/${route.query.tag}?limit=10`)
+  //         setArrayItems(response.data)
+  //       }
+  //     } catch (err) {
+  //       console.log(err)
+  //     }
+  //   })()
+  // }, [route])
 
   return <div className="p-4">
     <h1 className="text-5xl mb-8">{route.query.tag && route.query.tag}</h1>
@@ -42,70 +45,65 @@ export default function Tag() {
 }
 
 export async function getStaticPaths() {
-  // const routes = [
-  //   {
-  //     tag: 'weapons'
-  //   },
-  //   {
-  //     tag: 'ammos'
-  //   },
-  //   {
-  //     tag: 'armors'
-  //   },
-  //   {
-  //     tag: 'ashes'
-  //   },
-  //   {
-  //     tag: 'bosses'
-  //   },
-  //   {
-  //     tag: 'classes'
-  //   },
-  //   {
-  //     tag: 'creatures'
-  //   },
-  //   {
-  //     tag: 'incantations'
-  //   },
-  //   {
-  //     tag: 'items'
-  //   },
-  //   {
-  //     tag: 'locations'
-  //   },
-  //   {
-  //     tag: 'npcs'
-  //   },
-  //   {
-  //     tag: 'shields'
-  //   },
-  //   {
-  //     tag: 'sorceries'
-  //   },
-  //   {
-  //     tag: 'spirits'
-  //   },
-  //   {
-  //     tag: 'talismans'
-  //   },
-  //   {
-  //     tag: 'spirits'
-  //   }
-  // ]
-
-  // return {
-  //   paths: routes.map((e) => ({
-  //     params: {
-  //       tag: e.tag,
-  //     },
-  //   })
-  //   ),
-  //   fallback: false,
-  // }
+  const routes = [
+    {
+      tag: 'weapons'
+    },
+    {
+      tag: 'ammos'
+    },
+    {
+      tag: 'armors'
+    },
+    {
+      tag: 'ashes'
+    },
+    {
+      tag: 'bosses'
+    },
+    {
+      tag: 'classes'
+    },
+    {
+      tag: 'creatures'
+    },
+    {
+      tag: 'incantations'
+    },
+    {
+      tag: 'items'
+    },
+    {
+      tag: 'locations'
+    },
+    {
+      tag: 'npcs'
+    },
+    {
+      tag: 'shields'
+    },
+    {
+      tag: 'sorceries'
+    },
+    {
+      tag: 'spirits'
+    },
+    {
+      tag: 'talismans'
+    },
+    {
+      tag: 'spirits'
+    }
+  ]
 
   return {
-    paths: [],
-    fallback: true,
+    paths: routes.map((e) => ({
+      params: {
+        tag: e.tag,
+      },
+    })
+    ),
+    fallback: false,
   }
 }
 
