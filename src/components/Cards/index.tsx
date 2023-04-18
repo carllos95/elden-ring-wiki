@@ -9,7 +9,6 @@ interface CardsProps {
     category: string,
   }
   key: string
-
 }
 
 export default function Cards({ item }: CardsProps) {
