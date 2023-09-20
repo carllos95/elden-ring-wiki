@@ -1,62 +1,72 @@
 export const routes = [
   {
     tag: 'weapons',
-    name: 'Weapons'
+    name: 'Weapons',
+    img: './weapon.jpg'
   },
   {
     tag: 'ammos',
-    name: 'Ammos'
+    name: 'Ammos',
+    img: './ammos.png'
   },
   {
     tag: 'armors',
-    name: 'Armors'
+    name: 'Armors',
+    img: './armors.jpg'
   },
   {
     tag: 'ashes',
-    name: 'Ashes'
+    name: 'Ashes',
+    img: './ashes.jpg'
   },
   {
     tag: 'bosses',
-    name: 'Bosses'
+    name: 'Bosses',
+    img: './bosses.jpg'
   },
   {
     tag: 'classes',
-    name: 'Classes'
+    name: 'Classes',
+    img: './classes.png'
   },
   {
     tag: 'creatures',
-    name: 'Creatures'
+    name: 'Creatures',
+    img: './creatures.jpg'
   },
   {
     tag: 'incantations',
-    name: 'Incantations'
+    name: 'Incantations',
+    img: './incantations.jpg'
   },
   {
     tag: 'items',
-    name: 'Items'
+    name: 'Items',
+    img: './items.jpg'
   },
   {
     tag: 'locations',
-    name: 'Locations'
+    name: 'Locations',
+    img: './locations.jpg'
   },
   {
     tag: 'npcs',
-    name: 'NPCs'
+    name: 'NPCs',
+    img: './npcs.jpg'
   },
   {
     tag: 'shields',
-    name: 'Shields'
+    name: 'Shields',
+    img: './shields.jpg'
   },
   {
     tag: 'sorceries',
-    name: 'Sorceries'
-  },
-  {
-    tag: 'spirits',
-    name: 'Spirits'
+    name: 'Sorceries',
+    img: './sorceries.jpg'
   },
   {
     tag: 'talismans',
-    name: 'Talismans'
+    name: 'Talismans',
+    img: './talismans.jpg'
   }
 ]
