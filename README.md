@@ -1,9 +1,13 @@
 ## Projeto sobre o jogo Elden Ring
 
-Projeto desenvolvido em NextJs, utilizando a lib Axios para realizar requisições de API.
+Projeto desenvolvido em NextJs, utilizando Design System TailWindCSS.
 
 <p>&nbsp;</p>
-O intuito do projeto é realizar chamadas para a API [https://eldenring.fanapis.com/](https://eldenring.fanapis.com/);
+O intuito do projeto é realizar chamadas para a API https://eldenring.fanapis.com/. 
+<p>&nbsp;</p>
+O Projeto foi desenvolvido utilizando o GetStaticProps do próprio 
+<p>&nbsp;</p>
+NextJS, que consiste na utilização de páginas estáticas para um melhor carregamento.
 <p>&nbsp;</p>
 #### Lógicas aplicadas:
 <p>&nbsp;</p>
@@ -20,4 +24,5 @@ O intuito do projeto é realizar chamadas para a API [https://eldenring.fanapis.
 #### Libs:
 <p>&nbsp;</p>
 * Axios - Biblioteca utilizada para requisições;
-
+<p>&nbsp;</p>
+* TailWindCSS - Design System;
